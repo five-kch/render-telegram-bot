@@ -7,7 +7,7 @@ from telegram.ext import (ApplicationBuilder, MessageHandler, filters,
                           CommandHandler, ContextTypes, ChatMemberHandler, CallbackQueryHandler)
 
 # === CONFIGURATION ===
-BOT_TOKEN = "BOT_TOKEN"
+BOT_TOKEN = "7496477077:AAFU7uiQbaZZC5GCZ0Yk-5Srz9Fif6Qmqaw"
 BANNED_WORDS_FILE = "banned_words.txt.txt"
 ADMINS_FILE = "admins.txt.txt"
 WELCOME_TEXT = "Добро пожаловать, {name}! Ознакомьтесь с правилами: https://t.me/f1ves_chat/1816/2151 и нажмите кнопку ниже."
