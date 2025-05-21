@@ -7,9 +7,9 @@ from telegram.ext import (ApplicationBuilder, MessageHandler, filters,
                           CommandHandler, ContextTypes, ChatMemberHandler, CallbackQueryHandler)
 
 # === CONFIGURATION ===
-BOT_TOKEN = "7496477077:AAFU7uiQbaZZC5GCZ0Yk-5Srz9Fif6Qmqaw"
-BANNED_WORDS_FILE = "banned_words.txt"
-ADMINS_FILE = "admins.txt"
+BOT_TOKEN = "BOT_TOKEN"
+BANNED_WORDS_FILE = "banned_words.txt.txt"
+ADMINS_FILE = "admins.txt.txt"
 WELCOME_TEXT = "Добро пожаловать, {name}! Ознакомьтесь с правилами: https://t.me/f1ves_chat/1816/2151 и нажмите кнопку ниже."
 
 logging.basicConfig(level=logging.INFO)
@@ -48,14 +48,14 @@ async def check_permission(update: Update, context: ContextTypes.DEFAULT_TYPE) -
     owner_id = next((admin.user.id for admin in admins if admin.status == "creator"), None)
     if user.id in admin_ids or user.id == owner_id:
         return True
-    await update.message.reply_text("❌ Только владелец группы или администратор может использовать эту команду.")
+    await update.message.reply_text("❌ Аааа, хитрец! Низя!")
     return False
 
 # === COMMANDS ===
 async def command_addword(update: Update, context: ContextTypes.DEFAULT_TYPE):
     owner_id = await get_chat_owner_id(update.effective_chat)
     if update.effective_user.id != owner_id:
-        await update.message.reply_text("❌ Только владелец группы может использовать эту команду.")
+        await update.message.reply_text("❌ Аааа, хитрец! Низя!")
         return
     if not context.args:
         await update.message.reply_text("❗ Укажите слово для добавления.")
@@ -72,7 +72,7 @@ async def command_addword(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def command_delword(update: Update, context: ContextTypes.DEFAULT_TYPE):
     owner_id = await get_chat_owner_id(update.effective_chat)
     if update.effective_user.id != owner_id:
-        await update.message.reply_text("❌ Только владелец группы может использовать эту команду.")
+        await update.message.reply_text("❌ Аааа, хитрец! Низя!.")
         return
     if not context.args:
         await update.message.reply_text("❗ Укажите слово для удаления.")
